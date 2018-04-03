@@ -22,19 +22,19 @@ void LEDoff() {
 }
 
 void setup() {
-	delay(1000);
-	Serial.begin(115200);
+  delay(1000);
+  Serial.begin(115200);
 
-	WiFi.softAP(ssid, password);
+  WiFi.softAP(ssid, password);
 
-	IPAddress myIP = WiFi.softAPIP();
-	Serial.print("IP: ");
-	Serial.println(myIP);
+  IPAddress myIP = WiFi.softAPIP();
+  Serial.print("IP: ");
+  Serial.println(myIP);
 
-	server.on("/", LEDoff);
+  server.on("/", LEDoff);
   server.on("/on", LEDon);
   server.on("/off", LEDoff);
-	server.begin();
+  server.begin();
 
   pinMode(LED_BUILTIN, OUTPUT);
   delay(500);
@@ -42,5 +42,5 @@ void setup() {
 }
 
 void loop() {
-	server.handleClient();
+  server.handleClient();
 }
